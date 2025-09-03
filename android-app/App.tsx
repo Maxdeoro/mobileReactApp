@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text>ReactNativeApp</Text>
+        <Image source={require('./assets/logo.png')} style={styles.logo} resizeMode='contain'/>
         <View style={styles.form}>
           <TextInput style={styles.input} placeholder='Email'/>
           <TextInput style={styles.input} placeholder='password'/>
@@ -20,9 +20,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    // alignItems: 'center',
     flex: 1,
     padding: 55,
+    backgroundColor: '#16171D',
   },
   content: {
     alignItems: 'center',
@@ -38,5 +38,10 @@ const styles = StyleSheet.create({
   },
   recovery: {
     fontSize: 10,
-  }
+    color: '#8edfe7ff',
+  },
+  logo: {
+    width: 170,
+    height: 30,
+  },
 });
