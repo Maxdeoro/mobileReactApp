@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
+import { Input } from './shared/input/Input';
 
 export default function App() {
   return (
@@ -7,8 +8,8 @@ export default function App() {
       <View style={styles.content}>
         <Image source={require('./assets/logo.png')} style={styles.logo} resizeMode='contain'/>
         <View style={styles.form}>
-          <TextInput style={styles.input} placeholder='Email'/>
-          <TextInput style={styles.input} placeholder='password'/>
+          <Input placeholder='Email'/>
+          <Input placeholder='Password'/>
           <Button title='Enter' />
         </View>
         <Text style={styles.recovery}>Password recovery</Text>
@@ -31,10 +32,6 @@ const styles = StyleSheet.create({
   form: {
     alignSelf: 'stretch',
     gap: 16,
-  },
-  input: {
-    backgroundColor: '#2E2D3D',
-    color: '#FFF',
   },
   recovery: {
     fontSize: 10,
