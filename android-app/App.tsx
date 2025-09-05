@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { Colors, Gaps } from './shared/tokens';
 import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
 import { Input } from './shared/input/Input';
 
@@ -23,19 +23,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     padding: 55,
-    backgroundColor: '#16171D',
+    backgroundColor: Colors.black,
   },
   content: {
     alignItems: 'center',
-    gap: 50,
+    gap: Gaps.g50,
   },
   form: {
     alignSelf: 'stretch',
-    gap: 16,
+    gap: Gaps.g16,
   },
   recovery: {
     fontSize: 10,
-    color: '#8edfe7ff',
+    color: Colors.link,
   },
   logo: {
     width: 170,
