@@ -1,22 +1,21 @@
 import { Colors, Gaps } from './shared/tokens';
 import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
 import { Input } from './shared/input/Input';
-import EyeClosedIcon from './assets/icons/eye-closed';
-import EyeOpenedIcon from './assets/icons/eye-opened';
+// import EyeClosedIcon from './assets/icons/eye-closed';
+// import EyeOpenedIcon from './assets/icons/eye-opened';
 
 export default function App() {
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Image source={require('./assets/logo.png')} style={styles.logo} resizeMode='contain'/>
         <View style={styles.form}>
           <Input placeholder='Email'/>
-          <Input placeholder='Password'/>
+          <Input placeholder='Password' isPassword/>
           <Button title='Enter' />
         </View>
         <Text style={styles.recovery}>Password recovery</Text>
-        <EyeClosedIcon />
-        <EyeOpenedIcon />
       </View>
     </View>
   );
