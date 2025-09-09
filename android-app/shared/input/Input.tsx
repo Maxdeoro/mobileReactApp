@@ -4,18 +4,18 @@ import { useState } from "react";
 import EyeOpenedIcon from "../../assets/icons/eye-opened";
 import EyeClosedIcon from "../../assets/icons/eye-closed";
 
-export function Input(props: TextInputProps & {isPassword?: boolean}) {
+export function Input({isPassword, ...props}: TextInputProps & {isPassword?: boolean}) {
 
-    const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(true);
+    const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
     return (
         <View>
             <TextInput style={styles.input} 
                        placeholderTextColor={Colors.grey}
-                       secureTextEntry={props.isPassword && !isPasswordVisible}
+                       secureTextEntry={isPassword && !isPasswordVisible}
                        {...props}
             />
-            {props.isPassword && <Pressable 
+            {isPassword && <Pressable 
                                     style={styles.eyeIcon}
                                     onPress={() => setIsPasswordVisible(state => !state)}
                                  >

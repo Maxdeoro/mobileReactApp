@@ -1,6 +1,7 @@
-import { Colors, Gaps } from './shared/tokens';
-import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
+import { Colors, Gaps, Radius } from './shared/tokens';
+import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
 import { Input } from './shared/input/Input';
+import { Button } from './shared/button/Button';
 // import EyeClosedIcon from './assets/icons/eye-closed';
 // import EyeOpenedIcon from './assets/icons/eye-opened';
 
@@ -13,7 +14,7 @@ export default function App() {
         <View style={styles.form}>
           <Input placeholder='Email'/>
           <Input placeholder='Password' isPassword/>
-          <Button title='Enter' />
+          <Button text='Enter'/>
         </View>
         <Text style={styles.recovery}>Password recovery</Text>
       </View>
@@ -44,4 +45,10 @@ const styles = StyleSheet.create({
     width: 170,
     height: 30,
   },
+  button: {
+        height: 58,
+        backgroundColor: Colors.primary,
+        borderRadius: Radius.r10,
+        color: Colors.grey,
+    },
 });
