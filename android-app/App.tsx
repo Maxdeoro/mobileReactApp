@@ -1,34 +1,21 @@
 import { Colors, Gaps, Radius } from './shared/tokens';
-import { StyleSheet, Text, View, TextInput, Image, Dimensions, Alert, ToastAndroid, Platform } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { Input } from './shared/input/Input';
 import { Button } from './shared/button/Button';
-// import EyeClosedIcon from './assets/icons/eye-closed';
-// import EyeOpenedIcon from './assets/icons/eye-opened';
+import { ErrorNotification } from './shared/errorNotification/ErrorNotification';
+import { useState } from 'react';
 
 export default function App() {
 
-  const width = Dimensions.get('window').width;
+  const [error, setError] = useState<string | undefined>();
 
   const alert = () => {
-    // Alert (Android & iOs)
-    Alert.alert('Error', 'Wrong login or password', [{
-      text: 'ok',
-      onPress: () => {},
-      style: 'cancel',
-    }]);
-
-    // only for android
-    if(Platform.OS === 'android') {
-      ToastAndroid.showWithGravity(
-        'Wrong login or password',
-        ToastAndroid.SHORT,
-        ToastAndroid.CENTER
-      );
-    }
+    setError('Wrong login or password');
   };
 
   return (
     <View style={styles.container}>
+      <ErrorNotification error={error}></ErrorNotification>
       <View style={styles.content}>
         <Image source={require('./assets/logo.png')} style={styles.logo} resizeMode='contain'/>
         <View style={styles.form}>
