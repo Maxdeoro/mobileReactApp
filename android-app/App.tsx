@@ -11,6 +11,11 @@ export default function App() {
 
   const alert = () => {
     setError('Wrong login or password');
+    // disappear notification in 5sec
+    
+    setTimeout(() => {
+      setError(undefined);
+    }, 5000);
   };
 
   return (
