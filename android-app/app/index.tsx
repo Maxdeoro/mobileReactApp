@@ -1,8 +1,8 @@
-import { Colors, Gaps, Radius } from './shared/tokens';
+import { Colors, Gaps, Radius } from '../shared/tokens';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { Input } from './shared/input/Input';
-import { Button } from './shared/button/Button';
-import { ErrorNotification } from './shared/errorNotification/ErrorNotification';
+import { Input } from '../shared/input/Input';
+import { Button } from '../shared/button/Button';
+import { ErrorNotification } from '../shared/errorNotification/ErrorNotification';
 import { useState } from 'react';
 
 export default function App() {
