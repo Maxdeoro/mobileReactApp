@@ -1,9 +1,10 @@
 import { Colors, Gaps, Radius } from '../shared/tokens';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { Input } from '../shared/input/Input';
 import { Button } from '../shared/button/Button';
 import { ErrorNotification } from '../shared/errorNotification/ErrorNotification';
 import { useState } from 'react';
+import { Link } from 'expo-router';
 
 export default function App() {
 
@@ -28,7 +29,7 @@ export default function App() {
           <Input placeholder='Password' isPassword/>
           <Button text='Enter' onPress={alert}/>
         </View>
-        <Text style={styles.recovery}>Password recovery</Text>
+        <Link href={'/restore'} style={styles.recovery}>Password recovery</Link>
       </View>
     </View>
   );
