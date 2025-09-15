@@ -11,9 +11,9 @@ export function ErrorNotification({ error }: ErrorNotificationProps) {
 
     const onEnter = () => {
             Animated.timing(animatedValue, {
-                toValue: 0,
+                toValue: -15,
                 duration: 800,
-                useNativeDriver: true,
+                useNativeDriver: false,
             }).start();
     };
 
@@ -23,7 +23,7 @@ export function ErrorNotification({ error }: ErrorNotificationProps) {
             }
             setIsShown(true);
             const timerId = setTimeout(() => {
-                setIsShown(false)
+                setIsShown(false);
             }, 4000);
             return () => {clearTimeout(timerId)};
         }, [error]);
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('screen').width,
         backgroundColor: Colors.red,
         padding: 15,
+        top: 50,
     },
     errorText: {
         color: Colors.white,

@@ -20,9 +20,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ErrorNotification error={error}></ErrorNotification>
+      <ErrorNotification error={error}/>
       <View style={styles.content}>
-        <Image source={require('./assets/logo.png')} style={styles.logo} resizeMode='contain'/>
+        <Image source={require('../assets/logo.png')} style={styles.logo} resizeMode='contain'/>
         <View style={styles.form}>
           <Input placeholder='Email'/>
           <Input placeholder='Password' isPassword/>
@@ -32,7 +32,7 @@ export default function App() {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
