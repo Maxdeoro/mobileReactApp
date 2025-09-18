@@ -1,5 +1,6 @@
 import { Link, Stack } from "expo-router";
 import { View, Text } from "react-native";
+import { Colors } from "../shared/tokens";
 
 export default function Restore() {
     return <View>
@@ -7,7 +8,7 @@ export default function Restore() {
             title: 'Restore password',
         }}/> */}
         <Link href={'/'}>
-            <Text>LOGIN</Text>
+            <Text style={{color: Colors.white}}>LOGIN</Text>
         </Link>
     </View>;
 };
