@@ -8,7 +8,7 @@ export default function Restore() {
             title: 'Restore password',
         }}/> */}
         <Link href={'/'}>
-            <Text style={{color: Colors.white}}>LOGIN</Text>
+            <Text style={{color: Colors.white}}>RESTORE</Text>
         </Link>
     </View>;
 };
