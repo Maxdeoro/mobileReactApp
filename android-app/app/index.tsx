@@ -4,7 +4,7 @@ import { Input } from '../shared/input/Input';
 import { Button } from '../shared/button/Button';
 import { ErrorNotification } from '../shared/errorNotification/ErrorNotification';
 import { useState } from 'react';
-import { Link } from 'expo-router';
+import CustomLink from '../shared/customLink/CusomLink';
 
 export default function App() {
 
@@ -29,7 +29,7 @@ export default function App() {
           <Input placeholder='Password' isPassword/>
           <Button text='Enter' onPress={alert}/>
         </View>
-        <Link href={'/restore'} style={styles.recovery}>Password recovery</Link>
+        <CustomLink href={'/restores'} style={styles.recovery} text='Password recovery'/>
       </View>
     </View>
   );

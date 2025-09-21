@@ -21,4 +21,6 @@ export const Fonts = {
     f16: 16,
     f17: 17,
     f18: 18,
+    regular: 'FiraSans',
+	semibold: 'FiraSansSemiBold',
 };

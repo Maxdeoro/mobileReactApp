@@ -4,9 +4,6 @@ import { Colors } from "../shared/tokens";
 
 export default function Restore() {
     return <View>
-        {/* <Stack.Screen options={{
-            title: 'Restore password',
-        }}/> */}
         <Link href={'/'}>
             <Text style={{color: Colors.white}}>RESTORE</Text>
         </Link>
