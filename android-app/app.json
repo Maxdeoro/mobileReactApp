@@ -24,11 +24,15 @@
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundle": true,
+      "devServer": {
+        "port": 19006
+      }
     },
     "plugins": [
       "expo-router"
     ],
     "scheme": "my-app-scheme"
-  },
+  }
 }

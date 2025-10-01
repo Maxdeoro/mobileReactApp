@@ -7,13 +7,6 @@ import { useEffect } from "react";
 
 const [profile] = useAtom(profileAtom);
 
-useEffect(() => {
-    AsyncStorage.setItem('demo', 'test').then(async () => {
-        console.log(await AsyncStorage.getAllKeys());
-        console.log(await AsyncStorage.getItem('demo'));
-    });
-}, []);
-
 export default function MyCourses() {
     return <View>
         <Text>{profile.profile?.name}</Text>
