@@ -1,29 +1,41 @@
 import { View, Text } from "react-native";
-import { Colors } from "../../shared/tokens";
 import { useAtom } from "jotai";
 import { profileAtom } from "../../entities/user/model/user.state";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect } from "react";
 import axios from "axios";
 import { API } from "../../entities/auth/api/api";
-import { IAuthResponse } from "../../entities/auth/model/auth.interfaces";
+import { AuthResponse } from "../../entities/auth/model/auth.interfaces";
+import { loginAtom } from "../../entities/auth/model/auth.state";
 
-const [profile] = useAtom(profileAtom);
+// const login = async () => {
+//     const {data} = await axios.post<AuthResponse>(API.login, { 
+//         email: 'vasia@pupkin.ru',
+//         password: '12345678',
+//     });
+//     console.log(data);
+// };
 
-const login = async () => {
-    const {data} = await axios.post<IAuthResponse>(API.login, { 
-        email: 'vasia@pupkin.ru',
-        password: '12345678',
-    });
-    console.log(data);
-};
-
-useEffect(() => {
-    login();
-}, []);
+// useEffect(() => {
+//     login();
+// }, []);
 
 export default function MyCourses() {
+    const [profile] = useAtom(profileAtom);
+    const [auth, login] = useAtom(loginAtom);
+
+    useEffect(() => {
+        login({
+            email: 'vasia@pupkin.ru',
+            password: '12345678',
+        });
+    }, []);
+
     return <View>
-        <Text>{profile.profile?.name}</Text>
+        <Text>{auth?.access_token}</Text>
     </View>;
 };
+
+
+
+
+
