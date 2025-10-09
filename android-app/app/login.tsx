@@ -30,7 +30,6 @@ export default function App() {
           <Button text='Enter' onPress={alert}/>
         </View>
         <CustomLink href={'/course/typescript'} text='Password recovery'/>
-        {/* <CustomLink href={'/restore'} style={styles.recovery} text='Password recovery'/> */}
       </View>
     </View>
   );

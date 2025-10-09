@@ -20,7 +20,7 @@ import { loginAtom } from "../../entities/auth/model/auth.state";
 // }, []);
 
 export default function MyCourses() {
-    const [profile] = useAtom(profileAtom);
+    // const [profile] = useAtom(profileAtom);
     const [auth, login] = useAtom(loginAtom);
 
     useEffect(() => {

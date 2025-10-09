@@ -1,15 +1,12 @@
-// {
-//   "extends": "expo/tsconfig.base",
-//   "compilerOptions": {
-//     "strict": true
-//   }
-// }
-
 {
-  "compilerOptions": {
-    "jsx": "react-native",
-    "strict": true,
-    "esModuleInterop": true
-  },
-  "extends": "expo/tsconfig.base"
+	"extends": "expo/tsconfig.base",
+	"compilerOptions": {
+		"strict": true,
+		"moduleSuffixes": [
+			".ios",
+			".android",
+			".native",
+			""
+		],
+	}
 }
