@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "PupleSchool Demo App",
-    "slug": "purpleschooldemoapp",
-    "description": "Приложение школы PurpleSchool для прохождения курсов",
+    "name": "Mobile Demo App",
+    "slug": "mobiledemoapp",
+    "description": "Learning project react-native, expo-router",
     "version": "1.0.0",
     "platforms": [
       "ios",

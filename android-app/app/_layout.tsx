@@ -33,13 +33,11 @@ export default function  RootLayout() {
     return <SafeAreaProvider>
         <StatusBar style='light' backgroundColor={Colors.black}/>
         <Stack screenOptions={{
-            // statusBarBackgroundColor: Colors.black,
             contentStyle: {
                 backgroundColor: Colors.black,
             },
             headerShown: false,
         }}>
-            {/* <Stack.Screen name='index' /> */}
             <Stack.Screen name='login' />
             <Stack.Screen name='restore'
                         options={{

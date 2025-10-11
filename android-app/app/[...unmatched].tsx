@@ -1,5 +1,4 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { Input } from '../shared/input/Input';
 import CustomLink from '../shared/customLink/CusomLink';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, Fonts, Gaps } from '../shared/tokens';
