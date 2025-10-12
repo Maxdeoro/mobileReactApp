@@ -36,7 +36,7 @@ export default function Login() {
 
   useEffect(() => {
     if(access_token) {
-      router.replace('/(app)');   // replace to main page
+      router.replace('/');   // replace to main page
     }
   }, [access_token]);
 

@@ -1,6 +1,7 @@
 import { Redirect, Stack } from "expo-router";
 import { useAtomValue } from "jotai";
 import { authAtom } from "../../entities/auth/model/auth.state";
+import { Drawer } from 'expo-router/drawer';
 
 export default function  AppLayout() {
 
@@ -10,7 +11,7 @@ export default function  AppLayout() {
         return <Redirect href='/login'/>
     }
 
-    return <Stack>
-            <Stack.Screen name='index' />
-        </Stack>;
+    return <Drawer>
+            <Drawer.Screen name='index' />
+        </Drawer>;
 };
