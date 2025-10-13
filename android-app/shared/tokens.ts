@@ -1,5 +1,6 @@
 export const Colors = {
     black: '#06050cff',
+    blackLight: '#1E!F29',
     violetDark: '#2E2D3D',
     primary: '#6C38CC',
     primaryHover: '#452481',
@@ -21,6 +22,7 @@ export const Fonts = {
     f16: 16,
     f17: 17,
     f18: 18,
+    f20: 20,
     regular: 'FiraSans',
 	semibold: 'FiraSansSemiBold',
 };
