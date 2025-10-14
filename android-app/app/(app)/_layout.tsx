@@ -4,6 +4,7 @@ import { authAtom } from "../../entities/auth/model/auth.state";
 import { Drawer } from 'expo-router/drawer';
 import { Colors, Fonts } from "../../shared/tokens";
 import { MenuButton } from "../../features/layout/ui/menuButton/MenuButton";
+import { CustomDrawer } from "../../entities/layout/ui/customDrawer/CustomDrawer";
 
 export default function  AppLayout() {
 
@@ -13,7 +14,9 @@ export default function  AppLayout() {
     //     return <Redirect href='/login'/>
     // }
 
-    return <Drawer screenOptions={({navigation}) => ({
+    return <Drawer
+      drawerContent={(props) => <CustomDrawer {...props}/>} 
+      screenOptions={({navigation}) => ({
         headerStyle: {
             backgroundColor: Colors.blackLight,
             shadowColor: Colors.blackLight,
@@ -30,6 +33,10 @@ export default function  AppLayout() {
         headerTitleAlign: 'center',
         sceneContainerStyle: {
             backgroundColor: Colors.black,
+        },
+        drawerContentStyle: {
+            backgroundColor: Colors.black,
+
         },
     })}>
             <Drawer.Screen name='index' options={{
