@@ -8,6 +8,14 @@ import { logoutAtom } from "../../../auth/model/auth.state";
 import { loadProfileAtom } from "../../../user/model/user.state";
 import { useEffect } from "react";
 import { UserMenu } from '../../../user/ui/userMenu/UserMenu';
+import CoursesIcon from "../../../../assets/menu/courses";
+import ProfileIcon from "../../../../assets/menu/profile";
+import { MenuItem } from "../menuItem/MenuItem";
+
+const MENU = [
+    {text: 'Courses', icon: <CoursesIcon/>, path: 'index'},
+    {text: 'Profile', icon: <ProfileIcon/>, path: 'profile'},
+];
 
 export function CustomDrawer(props: DrawerContentComponentProps) {
 
@@ -21,9 +29,11 @@ export function CustomDrawer(props: DrawerContentComponentProps) {
     return (
         <DrawerContentScrollView {...props} contentContainerStyle={styles.scrollView}>
             <View style={styles.content}>
-                {/* <Text style={styles.text}>{profile.profile?.name}</Text> */}
                 <CloseDrawer {...props.navigation} />
                 <UserMenu user={profile.profile}/>
+                {MENU.map((menu) => (
+                    <MenuItem key={menu.path} {...menu} drawer={props}/>
+                ))}
             </View>
             <View style={styles.footer}>
                 <CustomLink text="Exit" href={'/login'} onPress={() => logout()}/>

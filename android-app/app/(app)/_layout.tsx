@@ -42,5 +42,8 @@ export default function  AppLayout() {
             <Drawer.Screen name='index' options={{
                 title: 'My courses',
             }}/>
+            <Drawer.Screen name='profile' options={{
+                title: 'Profile',
+            }}/>
         </Drawer>;
 };
