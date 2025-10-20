@@ -5,6 +5,7 @@ import { Drawer } from 'expo-router/drawer';
 import { Colors, Fonts } from "../../shared/tokens";
 import { MenuButton } from "../../features/layout/ui/menuButton/MenuButton";
 import { CustomDrawer } from "../../widget/layout/ui/customDrawer/CustomDrawer";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function  AppLayout() {
 
@@ -49,6 +50,6 @@ export default function  AppLayout() {
                 }}/>
             </Drawer>;
         </GestureHandlerRootView>
-        
+
     );
 };
