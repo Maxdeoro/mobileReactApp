@@ -14,36 +14,41 @@ export default function  AppLayout() {
     //     return <Redirect href='/login'/>
     // }
 
-    return <Drawer
-      drawerContent={(props) => <CustomDrawer {...props}/>} 
-      screenOptions={({navigation}) => ({
-        headerStyle: {
-            backgroundColor: Colors.blackLight,
-            shadowColor: Colors.blackLight,
-            shadowOpacity: 0,
-        },
-        headerLeft: () => {
-            return <MenuButton navigation={navigation}/>;
-        },
-        headerTitleStyle: {
-            color: Colors.white,
-            fontFamily: Fonts.regular,
-            fontSize: Fonts.f20,
-        },
-        headerTitleAlign: 'center',
-        sceneContainerStyle: {
-            backgroundColor: Colors.black,
-        },
-        drawerContentStyle: {
-            backgroundColor: Colors.black,
+    return (
+        <GestureHandlerRootView style={{flex: 1}}>
+            <Drawer
+                drawerContent={(props) => <CustomDrawer {...props}/>} 
+                screenOptions={({navigation}) => ({
+                    headerStyle: {
+                        backgroundColor: Colors.blackLight,
+                        shadowColor: Colors.blackLight,
+                        shadowOpacity: 0,
+                    },
+                    headerLeft: () => {
+                        return <MenuButton navigation={navigation}/>;
+                    },
+                    headerTitleStyle: {
+                        color: Colors.white,
+                        fontFamily: Fonts.regular,
+                        fontSize: Fonts.f20,
+                    },
+                    headerTitleAlign: 'center',
+                    sceneContainerStyle: {
+                        backgroundColor: Colors.black,
+                    },
+                    drawerContentStyle: {
+                        backgroundColor: Colors.black,
 
-        },
-    })}>
-            <Drawer.Screen name='index' options={{
-                title: 'My courses',
-            }}/>
-            <Drawer.Screen name='profile' options={{
-                title: 'Profile',
-            }}/>
-        </Drawer>;
+                    },
+            })}>
+                <Drawer.Screen name='index' options={{
+                    title: 'My courses',
+                }}/>
+                <Drawer.Screen name='profile' options={{
+                    title: 'Profile',
+                }}/>
+            </Drawer>;
+        </GestureHandlerRootView>
+        
+    );
 };
