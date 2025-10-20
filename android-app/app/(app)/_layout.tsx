@@ -4,7 +4,7 @@ import { authAtom } from "../../entities/auth/model/auth.state";
 import { Drawer } from 'expo-router/drawer';
 import { Colors, Fonts } from "../../shared/tokens";
 import { MenuButton } from "../../features/layout/ui/menuButton/MenuButton";
-import { CustomDrawer } from "../../entities/layout/ui/customDrawer/CustomDrawer";
+import { CustomDrawer } from "../../widget/layout/ui/customDrawer/CustomDrawer";
 
 export default function  AppLayout() {
 

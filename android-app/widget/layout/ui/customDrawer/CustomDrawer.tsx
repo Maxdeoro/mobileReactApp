@@ -4,13 +4,13 @@ import { Colors } from "../../../../shared/tokens";
 import CustomLink from "../../../../shared/customLink/CusomLink";
 import { CloseDrawer } from "../../../../features/layout/ui/closeDrawer/CloseDrawer";
 import { useAtom, useSetAtom } from "jotai";
-import { logoutAtom } from "../../../auth/model/auth.state";
-import { loadProfileAtom } from "../../../user/model/user.state";
+import { logoutAtom } from "../../../../entities/auth/model/auth.state";
+import { loadProfileAtom } from "../../../../entities/user/model/user.state";
 import { useEffect } from "react";
-import { UserMenu } from '../../../user/ui/userMenu/UserMenu';
+import { UserMenu } from '../../../../entities/user/ui/userMenu/UserMenu';
 import CoursesIcon from "../../../../assets/menu/courses";
 import ProfileIcon from "../../../../assets/menu/profile";
-import { MenuItem } from "../menuItem/MenuItem";
+import { MenuItem } from "../../../../entities/layout/ui/menuItem/MenuItem";
 
 const MENU = [
     {text: 'Courses', icon: <CoursesIcon/>, path: 'index'},
