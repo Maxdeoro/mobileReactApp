@@ -1,8 +1,12 @@
-import { Pressable, View, Text, Image, StyleSheet } from 'react-native';
+import { Pressable, View, Text, StyleSheet, Alert } from 'react-native';
 import { useMediaLibraryPermissions, MediaTypeOptions, PermissionStatus,
     launchImageLibraryAsync } from 'expo-image-picker';
 import UploadIcon from '../../assets/icons/upload';
 import { Gaps, Fonts, Colors, Radius } from '../tokens';
+import FormData from 'form-data';
+import axios, { AxiosError } from 'axios';
+import { FILE_API } from '../api';
+import { UploadResponse } from './imageUploader.interface';
 
 interface ImageUploaderProps {
     onUpload: (uri: string) => void;
@@ -41,7 +45,30 @@ export function ImageUploader({onUpload}: ImageUploaderProps) {
         if(!result.assets?.length) {
             return;
         }
-        onUpload(result.assets[0].uri);
+        await uploadToServer(result.assets[0].uri, result.assets[0].fileName ?? '');
+        // onUpload(result.assets[0].uri);
+    };
+
+    const uploadToServer = async (url: string, fileName: string) => {
+        const formData = new FormData();
+        formData.append('files', {
+            uri: url,
+            fileName,
+            type: 'image/jpeg',
+        });
+        try {
+            const {data} = await axios.post<UploadResponse>(FILE_API.uploadImage, formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+            });
+            onUpload(data.urls.original);
+        } catch(error) {
+            if(error instanceof AxiosError) {
+                console.error(error);
+            }
+            return null;
+        }
     };
 
     return (

@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
     text: {
         color: Colors.white,
         fontSize: Fonts.f16,
-        fontFamily: Fonts.regilar,
+        fontFamily: Fonts.regular,
     },
 });
