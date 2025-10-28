@@ -1,17 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { ImageUploader } from '../../shared/imageUploader/ImageUploader';
 import { Gaps } from '../../shared/tokens';
 import { Avatar } from '../../entities/user/ui/avatar/Avatar';
+import { updateProfileAtom } from '../../entities/user/model/user.state';
+import { Button } from '../../shared/button/Button';
+import { useAtom } from 'jotai';
 
 export default function Profile() {
 
     const [image, setImage] = useState<string | null>(null);
+    const [profile, updateProfile] = useAtom(updateProfileAtom);
+
+    const submitProfile = () => {
+        if(!image) {
+            return;
+        }
+        updateProfile({photo: image});
+    };
+
+    useEffect(() => {
+        if(profile && profile.profile?.photo) {
+            setImage(profile.profile?.photo);
+        }
+    }, [profile]);
 
     return (
-        <View style={styles.container}>
-            <Avatar image={image}/>
-            <ImageUploader onUpload={setImage} onError={(e) => console.log(e)}/>
+        <View>
+            <View style={styles.container}>
+                <Avatar image={image}/>
+                <ImageUploader onUpload={setImage} onError={(e) => console.log(e)}/>
+            </View>
+            <Button text="Save" onPress={submitProfile}/>
         </View>
     );
 };
@@ -21,7 +41,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: Gaps.g20,
         alignItems: 'center',
-        paddingHorizontal: 50,
+        paddingHorizontal: 30,
         paddingVertical: 20,
     },
 });
