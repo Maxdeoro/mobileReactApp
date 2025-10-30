@@ -1,5 +1,5 @@
 import { Colors, Gaps, Radius } from '../shared/tokens';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, Dimensions } from 'react-native';
 import { Input } from '../shared/input/Input';
 import { Button } from '../shared/button/Button';
 import { ErrorNotification } from '../shared/errorNotification/ErrorNotification';
@@ -8,6 +8,8 @@ import CustomLink from '../shared/customLink/CusomLink';
 import { useAtom } from 'jotai';
 import { loginAtom } from '../entities/auth/model/auth.state';
 import { router } from 'expo-router';
+import { useScreenOrientation } from '../shared/hooks';
+import { Orientation } from 'expo-screen-orientation';
 
 export default function Login() {
 
@@ -15,6 +17,8 @@ export default function Login() {
   const [email, setEmail]= useState<string>();
   const [password, setPassword] = useState<string>();
   const [{access_token, isLoading, error}, login] = useAtom(loginAtom);
+  const orientation = useScreenOrientation();
+  console.log(orientation);
 
   const submit = () => {
     if(!email) {
@@ -46,8 +50,19 @@ export default function Login() {
       <View style={styles.content}>
         <Image source={require('../assets/logo.png')} style={styles.logo} resizeMode='contain'/>
         <View style={styles.form}>
-          <Input placeholder='Email' onChangeText={setEmail}/>
-          <Input placeholder='Password' isPassword onChangeText={setPassword}/>
+          <View style={{...styles.inputs, 
+            flexDirection: orientation === Orientation.PORTRAIT_UP ? 'column' : 'row'}}>
+            <Input placeholder='Email' onChangeText={setEmail} 
+              style={{width: orientation === Orientation.PORTRAIT_UP || 
+                orientation === Orientation.PORTRAIT_DOWN ? 'auto' 
+                : Dimensions.get('window').width / 2 - 16 - 48, 
+              }}/>
+            <Input placeholder='Password' isPassword onChangeText={setPassword} style={{
+              width: orientation === Orientation.PORTRAIT_UP || 
+              orientation === Orientation.PORTRAIT_DOWN ? 'auto' 
+              : Dimensions.get('window').width / 2 - 16 - 48,
+            }}/>
+          </View>
           <Button text='Enter' onPress={submit} isLoading={isLoading}/>
           {/* <Button text='Enter' onPress={submit} /> */}
         </View>
@@ -85,5 +100,11 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.primary,
         borderRadius: Radius.r10,
         color: Colors.grey,
-    },
+  },
+  inputs: {
+    gap: Gaps.g16,
+  },
+  // input: {
+  //   width: 'auto',
+  // }
 });

@@ -10,7 +10,6 @@
       "web"
     ],
     "icon": "./assets/icon.png",
-    // "orientation": "portrait",
     "userInterfaceStyle": "light",
     "backgroundColor": "#16171D",
     "primaryColor": "#6C38CC",
