@@ -75,6 +75,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
+    alignItems: 'center',
     flex: 1,
     padding: 55,
     backgroundColor: Colors.black,
@@ -82,6 +83,8 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     gap: Gaps.g50,
+    maxWidth: 400,
+    minWidth: '60%',
   },
   form: {
     alignSelf: 'stretch',
