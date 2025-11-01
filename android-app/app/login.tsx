@@ -1,5 +1,5 @@
 import { Colors, Gaps, Radius } from '../shared/tokens';
-import { StyleSheet, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, Dimensions, KeyboardAvoidingView } from 'react-native';
 import { Input } from '../shared/input/Input';
 import { Button } from '../shared/button/Button';
 import { ErrorNotification } from '../shared/errorNotification/ErrorNotification';
@@ -47,7 +47,8 @@ export default function Login() {
   return (
     <View style={styles.container}>
       <ErrorNotification error={localError}/>
-      <View style={styles.content}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
+                            style={styles.content}>
         <Image source={require('../assets/logo.png')} style={styles.logo} resizeMode='contain'/>
         <View style={styles.form}>
           <View style={{...styles.inputs, 
@@ -67,7 +68,7 @@ export default function Login() {
           {/* <Button text='Enter' onPress={submit} /> */}
         </View>
         <CustomLink href={'/restore'} text='Password recovery'/>
-      </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };
