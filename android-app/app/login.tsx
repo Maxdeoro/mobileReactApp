@@ -1,5 +1,5 @@
 import { Colors, Gaps, Radius } from '../shared/tokens';
-import { StyleSheet, View, Image, Dimensions, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Image, Dimensions, KeyboardAvoidingView, Platform } from 'react-native';
 import { Input } from '../shared/input/Input';
 import { Button } from '../shared/button/Button';
 import { ErrorNotification } from '../shared/errorNotification/ErrorNotification';
@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
     color: Colors.link,
   },
   logo: {
-    width: 170,
+    // width: 170,
+    width: Platform.select({ios: 170, android: 180, web: 200}),
     height: 30,
   },
   button: {
