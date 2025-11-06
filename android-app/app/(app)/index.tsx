@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
-import { Button } from "../../shared/button/Button";
+import { View, StyleSheet } from "react-native";
 import { useSetAtom, useAtomValue } from "jotai";
-import { logoutAtom } from "../../entities/auth/model/auth.state";
 import { courseAtom, loadCourseAtom } from "../../entities/course/model/couse.state";
 import { useEffect } from "react";
+import { CourseCard } from "../../entities/course/ui/courseCard/CourseCard";
+import { Gaps } from "../../shared/tokens";
 
 export default function MyCourses() {
 
@@ -15,12 +15,18 @@ export default function MyCourses() {
         loadCourse();
     }, []);
 
-    return <View>
-        <Text>INDEX</Text>
-        {courses.length > 0 && courses.map((c) => <Text key={c.id}>{c.title}</Text>)}
-        {/* <Button text="Logout" onPress={logout}/> */}
+    return <View style={styles.wrapper}>
+        {courses.length > 0 && courses.map((c) => <CourseCard {...c} key={c.id}/>)}
     </View>;
 };
+
+const styles = StyleSheet.create({
+    wrapper: {
+        flexDirection: 'column',
+        gap: Gaps.g20,
+        padding: 20,
+    },
+});
 
 
 
