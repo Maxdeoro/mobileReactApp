@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import { useSetAtom, useAtomValue } from "jotai";
 import { courseAtom, loadCourseAtom } from "../../entities/course/model/couse.state";
 import { useEffect } from "react";
@@ -15,19 +15,29 @@ export default function MyCourses() {
         loadCourse();
     }, []);
 
-    return <ScrollView>
-        <View  style={styles.wrapper}>
-            {courses.length > 0 && courses.map((c) => <CourseCard {...c} key={c.id}/>)}
-        </View>
-    </ScrollView>;
+    const renderCourse = ({item}: {item: StudentCourseDescription}) => {
+        return (
+            <View style={styles.item}>
+                <CourseCard {...item}/>
+            </View>
+        );
+    };
+
+    return (
+    <>
+        {courses.length > 0 && <FlatList 
+            data={courses}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={renderCourse}
+        />}
+    </>
+    );
 };
 
 const styles = StyleSheet.create({
-    wrapper: {
-        flexDirection: 'column',
-        gap: Gaps.g20,
+    item: {
         padding: 20,
-    },
+    }
 });
 
 
