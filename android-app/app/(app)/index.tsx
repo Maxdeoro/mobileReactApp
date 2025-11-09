@@ -1,9 +1,9 @@
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList, ActivityIndicator, RefreshControl } from "react-native";
 import { useSetAtom, useAtomValue } from "jotai";
 import { courseAtom, loadCourseAtom } from "../../entities/course/model/couse.state";
 import { useEffect } from "react";
 import { CourseCard } from "../../entities/course/ui/courseCard/CourseCard";
-import { Gaps } from "../../shared/tokens";
+import { Gaps, Colors } from "../../shared/tokens";
 
 export default function MyCourses() {
 
@@ -25,11 +25,19 @@ export default function MyCourses() {
 
     return (
     <>
-        {courses.length > 0 && <FlatList 
+        {isLoading && <ActivityIndicator style={styles.activity} size='large' color={Colors.primary}/>}
+        {courses.length > 0 && ( 
+        <FlatList 
+            refreshControl={
+            <RefreshControl refreshing={isLoading} 
+                            onRefresh={loadCourse} 
+                            tintColor={Colors.primary} 
+                            titleColor={Colors.primary}
+            />}
             data={courses}
             keyExtractor={(item) => item.id.toString()}
             renderItem={renderCourse}
-        />}
+        />)}
     </>
     );
 };
@@ -37,7 +45,10 @@ export default function MyCourses() {
 const styles = StyleSheet.create({
     item: {
         padding: 20,
-    }
+    },
+    activity: {
+        marginTop: 30,
+    },
 });
 
 
