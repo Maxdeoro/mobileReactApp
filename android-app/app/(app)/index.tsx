@@ -4,6 +4,7 @@ import { courseAtom, loadCourseAtom } from "../../entities/course/model/couse.st
 import { useEffect } from "react";
 import { CourseCard } from "../../entities/course/ui/courseCard/CourseCard";
 import { Gaps, Colors } from "../../shared/tokens";
+import { StudentCourseDescription } from "../../entities/course/model/course.model";
 
 export default function MyCourses() {
 
