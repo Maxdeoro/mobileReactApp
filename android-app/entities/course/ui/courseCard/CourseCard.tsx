@@ -3,8 +3,11 @@ import { StudentCourseDescription } from "../../model/course.model";
 import { Chip } from "../../../../shared/chip/Chip";
 import { Button } from "../../../../shared/button/Button";
 import { Colors, Radius, Fonts, Gaps } from "../../../../shared/tokens";
+import MaskedView from "@react-native-masked-view/masked-view";
+import { LinearGradient } from "expo-linear-gradient";
 
-export function CourseCard({image,shortTitle,courseOnDirection,alias}: StudentCourseDescription) {
+export function CourseCard({image,shortTitle,courseOnDirection,alias,tariffs}
+        : StudentCourseDescription) {
     return (
         <View style={styles.card}>
             <Image  source={{uri: image}}
@@ -17,6 +20,18 @@ export function CourseCard({image,shortTitle,courseOnDirection,alias}: StudentCo
                     {courseOnDirection.length > 0 && 
                      courseOnDirection.map((c) => <Chip text={c.direction.name}></Chip>)}
                 </View>
+                <MaskedView maskElement={
+                    <Text style={styles.tariff}>Tariff &laquo;{tariffs[0].name}&raquo;</Text>
+                }>
+                    <LinearGradient colors={['#D77BE5','#6C38CC']}
+                                    start={{x: 0, y: 0}}
+                                    end={{x: 1, y: 0}}
+                    >
+                        <Text style={{...styles.tariff, ...styles.tariffWithOpacity}}>
+                            Tariff &laquo;{tariffs[0].name}&raquo;
+                        </Text>
+                    </LinearGradient>
+                </MaskedView>
             </View>
             <View style={styles.footer}>
                 <Button text="Buy" onPress={() => {Linking.openURL(`https://purpleschool.ru/course/${alias}`)}}/>
@@ -56,5 +71,13 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         borderBottomLeftRadius: Radius.r10,
         borderBottomRightRadius: Radius.r10,
+    },
+    tariff: {
+        fontSize: Fonts.f16,
+        fontFamily: Fonts.regular,
+        marginTop: 10,
+    },
+    tariffWithOpacity: {
+        opacity: 0,
     },
 });
