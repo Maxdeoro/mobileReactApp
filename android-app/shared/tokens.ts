@@ -9,6 +9,8 @@ export const Colors = {
     white: '#FAFAFA',
     red: '#CC384E',
     border: '#4D5064',
+    secondary: '#E47AD5',
+    greyLight: '#DAD9DE',
 };
 
 export const Gaps = {

@@ -2,7 +2,7 @@ import { View, StyleSheet, FlatList, ActivityIndicator, RefreshControl } from "r
 import { useSetAtom, useAtomValue } from "jotai";
 import { courseAtom, loadCourseAtom } from "../../entities/course/model/couse.state";
 import { useEffect } from "react";
-import { CourseCard } from "../../entities/course/ui/courseCard/CourseCard";
+import { CourseCard } from "../../widget/course/ui/courseCard/CourseCard";
 import { Gaps, Colors } from "../../shared/tokens";
 import { StudentCourseDescription } from "../../entities/course/model/course.model";
 

@@ -5,6 +5,7 @@ import { Button } from "../../../../shared/button/Button";
 import { Colors, Radius, Fonts, Gaps } from "../../../../shared/tokens";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
+import { ProgressBar } from '../../../../entities/course/ui/progressBar/ProgressBar';
 
 export function CourseCard({image,shortTitle,courseOnDirection,alias,tariffs}
         : StudentCourseDescription) {
@@ -15,6 +16,7 @@ export function CourseCard({image,shortTitle,courseOnDirection,alias,tariffs}
                     height={200}
             />
             <View style={styles.header}>
+                <ProgressBar totalLessons={120} passedLessons={30}/>
                 <Text>{shortTitle}</Text>
                 <View style={styles.chips}>
                     {courseOnDirection.length > 0 && 
