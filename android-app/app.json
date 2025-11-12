@@ -61,6 +61,13 @@
         {
           "photosPermission": "Необходимо разрешение для выбора фото профиля"
         }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#16171D"
+        }
       ]
     ],
     "scheme": "purpleschool",
