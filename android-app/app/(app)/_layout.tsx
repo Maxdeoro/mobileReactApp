@@ -7,6 +7,15 @@ import { MenuButton } from "../../features/layout/ui/menuButton/MenuButton";
 import { CustomDrawer } from "../../widget/layout/ui/customDrawer/CustomDrawer";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet } from "react-native";
+import * as Notification from 'expo-notifications';
+
+Notification.setNotificationHandler({
+    handleNotification: async () => ({
+        shouldPlaySound: true,
+        shouldSetBadge: true,
+        shouldShowAlert: true,
+    }),
+});
 
 export default function  AppLayout() {
 
