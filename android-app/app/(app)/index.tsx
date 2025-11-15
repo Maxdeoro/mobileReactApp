@@ -10,7 +10,7 @@ import * as Notification from 'expo-notifications';
 
 export default function MyCourses() {
 
-    const {courses, isLoading, error} = useAtomValue(courseAtom);
+    const {courses, isLoading } = useAtomValue(courseAtom);
 
     const loadCourse = useSetAtom(loadCourseAtom);
 
@@ -29,13 +29,12 @@ export default function MyCourses() {
     const allowsNotification = async () => {
         const settings = await Notification.getPermissionsAsync();
         return (
-            settings.granted || settings.ios?.status == Notification.IosAutorizationStatus
-            .PROVISIONAL;
+            settings.granted || settings.ios?.status == Notification.IosAuthorizationStatus.PROVISIONAL
         );
     };
 
     const requestPermissions = async () => {
-        return Notification.getPermissionsAsync({
+        return Notification.requestPermissionsAsync({
             ios: {
                 allowAlert: true,
                 allowBadge: true,
