@@ -7,6 +7,8 @@ import { Gaps, Colors } from "../../shared/tokens";
 import { StudentCourseDescription } from "../../entities/course/model/course.model";
 import { Button } from "../../shared/button/Button";
 import * as Notification from 'expo-notifications';
+import * as Device from 'expo-device';
+import Constants from 'expo-constants';
 
 export default function MyCourses() {
 
@@ -51,16 +53,23 @@ export default function MyCourses() {
             await requestPermissions();
         }
 
-        Notification.scheduleNotificationAsync({
-            content: {
-                title: "New course Typescript",
-                body: "Let's learn typescript right now!",
-                data: {alias: 'typescript'},    // example alias
-            },
-            trigger: {
-                seconds: 10,
-            }
-        });
+        if(Device.isDevice) {
+            const token = await Notification.getExpoPushTokenAsync({
+                projectId: Constants.expoConfig?.extra?.eas.projectId,
+            });
+            console.log(token);
+        }
+
+        // Notification.scheduleNotificationAsync({
+        //     content: {
+        //         title: "New course Typescript",
+        //         body: "Let's learn typescript right now!",
+        //         data: {alias: 'typescript'},    // example alias
+        //     },
+        //     trigger: {
+        //         seconds: 10,
+        //     }
+        // });
     };
 
     return (
