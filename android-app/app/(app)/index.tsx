@@ -53,9 +53,9 @@ export default function MyCourses() {
 
         Notification.scheduleNotificationAsync({
             content: {
-                title: "Don't foget about next lesson!",
-                body: "Don't foget study your lessons every day.",
-                data: {success: true},
+                title: "New course Typescript",
+                body: "Let's learn typescript right now!",
+                data: {alias: 'typescript'},    // example alias
             },
             trigger: {
                 seconds: 10,
