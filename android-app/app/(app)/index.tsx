@@ -59,17 +59,6 @@ export default function MyCourses() {
             });
             console.log(token);
         }
-
-        // Notification.scheduleNotificationAsync({
-        //     content: {
-        //         title: "New course Typescript",
-        //         body: "Let's learn typescript right now!",
-        //         data: {alias: 'typescript'},    // example alias
-        //     },
-        //     trigger: {
-        //         seconds: 10,
-        //     }
-        // });
     };
 
     return (
